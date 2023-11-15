@@ -1,6 +1,6 @@
 # Aiolchemy
 
-## inspired by Django architecture and manage.
+## inspired by Django architecture and it's interface.
 
 Test version of fusion `aiogram` and `sqlalchemy` packages.
 
