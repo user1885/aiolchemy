@@ -1,0 +1,1 @@
+from .command.manager import CommandManager, commands
