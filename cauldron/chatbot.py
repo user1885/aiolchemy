@@ -6,6 +6,12 @@ from aiogram import Bot, Dispatcher
 from os import getenv
 
 
-storage = MemoryStorage()
-bot = Bot(token=getenv("BOT_API_TOKEN"))
-dp = dispatcher = Dispatcher(storage=storage)
+storage: MemoryError
+bot: Bot
+dp: Dispatcher
+
+def setup():
+    global storage, bot, dp
+    storage = MemoryStorage()
+    bot = Bot(token=getenv("BOT_API_TOKEN"))
+    dp = Dispatcher(storage=storage)

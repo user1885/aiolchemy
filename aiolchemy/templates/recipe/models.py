@@ -1,6 +1,6 @@
 """
 SqlAlchemmy models
 """
-from aiolchemy.db.asynchronous import AsyncBase
+from aiolchemy.db.core import AsyncBase
 
 # create your models here

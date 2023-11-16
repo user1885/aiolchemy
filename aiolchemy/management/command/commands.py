@@ -1,10 +1,9 @@
 """
 Your own commands for command manager
 """
-from pathlib import Path
 from .base import BaseCommand
-from ...core.assembly import Assembly
-from os import getenv
+from ... import project
+from ...settings import RECIPE_TEMPLATE_DIR
 import shutil
 
 
@@ -15,14 +14,9 @@ class MakeRecipeCommand(BaseCommand):
     name = "makerecipe"
 
     def execute(self):
-        assembly = Assembly()
-        assembly.setup_settings()
+        project.setup_settings()
         recipe_name = self.args[2]
-        this_file = Path(__file__).resolve()
-        templates_dir = this_file.parent.parent.parent / "templates"
-        recipe_template = templates_dir / "recipe"
-        recipes_dir = Path(getenv("RECIPES_DIR")).resolve()
-        shutil.copytree(recipe_template, recipes_dir / recipe_name)
+        shutil.copytree(RECIPE_TEMPLATE_DIR, recipe_name)
 
 
 class BrewCommand(BaseCommand):
@@ -32,6 +26,5 @@ class BrewCommand(BaseCommand):
     name = "brew"
 
     def execute(self):
-        assembly = Assembly()
-        assembly.assemble()
-        assembly.run()
+        project.setup()
+        project.run()

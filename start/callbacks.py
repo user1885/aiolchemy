@@ -12,4 +12,4 @@ from sqlalchemy.ext.asyncio import AsyncSession
 async def start(message: Message,
                 command: CommandObject,
                 session: AsyncSession):
-    await message.answer("start")
+    await message.answer("start!")
