@@ -30,3 +30,4 @@ def setup():
 
 def run():
     asyncio.run(chatbot.dp.start_polling(chatbot.bot))
+    

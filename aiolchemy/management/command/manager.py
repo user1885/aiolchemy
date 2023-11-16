@@ -34,3 +34,4 @@ class CommandManager:
         for command in self.commands:
             if command.name == command_arg:
                 return command
+            

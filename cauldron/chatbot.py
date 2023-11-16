@@ -15,3 +15,4 @@ def setup():
     storage = MemoryStorage()
     bot = Bot(token=getenv("BOT_API_TOKEN"))
     dp = Dispatcher(storage=storage)
+    
