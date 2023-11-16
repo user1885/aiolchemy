@@ -25,7 +25,14 @@ async def get_tables():
         await conn.run_sync(AsyncBase.metadata.reflect)
         return AsyncBase.metadata.tables
 
-def setup_tables():
+async def create_tables():
+    async with async_engine.begin() as conn:
+        await conn.run_sync(AsyncBase.metadata.create_all)
+
+def setup_tables_to_db():
+    asyncio.run(create_tables())
+
+def setup_tables_from_db():
     global tables
     tables = asyncio.run(get_tables())
 
@@ -33,3 +40,6 @@ def setup():
     global async_engine, async_session
     async_engine = create_async_engine(getenv("ASYNC_DATABASE_URL"))
     async_session = async_sessionmaker(bind=async_engine)
+
+def post_setup():
+    setup_tables_to_db()

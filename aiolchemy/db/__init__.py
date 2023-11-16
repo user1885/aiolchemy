@@ -1,1 +1,1 @@
-from .core import setup
+from .core import setup, post_setup

@@ -4,7 +4,7 @@ Project settings
 from pathlib import Path
 
 # telergam bot API token
-BOT_API_TOKEN = "Your token here"
+BOT_API_TOKEN = "6087130044:AAFEXBHXjUDCHBIQJakSl6iYyWn3DhNmGbU"
 
 # base directory for project files
 BASE_DIR = Path(__file__).resolve().parent.parent

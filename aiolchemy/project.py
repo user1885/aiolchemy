@@ -6,9 +6,6 @@ import asyncio
 import os
 
 
-def setup_db():
-    db.setup()
-
 def _settings_to_env():
     is_const = lambda x: x.upper() == x
     for name, attr in vars(settings).items():
@@ -18,9 +15,6 @@ def _settings_to_env():
 def setup_settings():
     _settings_to_env()
 
-def setup_chatbot():
-    chatbot.setup()
-
 def setup_recipes():
     recipe_names = settings.RECIPES
     for recipe_name in recipe_names:
@@ -29,9 +23,10 @@ def setup_recipes():
 
 def setup():
     setup_settings()
-    setup_db()
-    setup_chatbot()
+    db.setup()
+    chatbot.setup()
     setup_recipes()
+    db.post_setup()
 
 def run():
     asyncio.run(chatbot.dp.start_polling(chatbot.bot))

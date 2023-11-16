@@ -4,6 +4,7 @@ Your own commands for command manager
 from .base import BaseCommand
 from ... import project
 from ...settings import RECIPE_TEMPLATE_DIR
+from ... import db
 import shutil
 
 
