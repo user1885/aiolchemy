@@ -5,7 +5,6 @@ from aiolchemy.db.context.session import asessional
 from aiogram.types import Message
 from aiogram.filters import CommandObject
 from sqlalchemy.ext.asyncio import AsyncSession
-from .models import User
 
 # create your callbacks here
 
@@ -14,3 +13,4 @@ async def start(message: Message,
                 command: CommandObject,
                 session: AsyncSession):
     await message.answer("start")
+    

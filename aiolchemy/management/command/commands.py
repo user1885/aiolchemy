@@ -3,8 +3,7 @@ Your own commands for command manager
 """
 from .base import BaseCommand
 from ... import project
-from ...settings import RECIPE_TEMPLATE_DIR
-from ... import db
+from ...settings import RECIPE_TEMPLATE_DIR, WORKSPACE_DIR
 import shutil
 
 
@@ -17,7 +16,8 @@ class MakeRecipeCommand(BaseCommand):
     def execute(self):
         project.setup_settings()
         recipe_name = self.args[2]
-        shutil.copytree(RECIPE_TEMPLATE_DIR, recipe_name)
+        shutil.copytree(RECIPE_TEMPLATE_DIR, 
+                        WORKSPACE_DIR / recipe_name)
 
 
 class BrewCommand(BaseCommand):
